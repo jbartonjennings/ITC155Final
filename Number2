@@ -1,0 +1,74 @@
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
+
+public class CopyStackClass
+{
+	
+public static Stack copyStack (Stack stack)
+{
+	
+Queue queue = new LinkedList();
+
+Stack newstack = new Stack();
+
+while(!stack.isEmpty())
+	
+{
+	
+queue.add(stack.pop());
+
+}
+
+while(!queue.isEmpty());
+	
+{
+
+stack.add(queue.remove());
+
+}
+
+while(!stack.isEmpty())
+
+{
+
+queue.add(stack.pop());
+
+}
+
+while (!queue.isEmpty())
+	
+{
+	
+int i = queue.remove();
+stack.add(i);
+newstack.add(i);
+
+}
+
+return newstack;
+}
+
+public static void main (String[]args)
+{
+	Stack stack = new Stack();
+	
+	stack.push(4);
+	stack.push(7);
+	stack.push(8);
+	stack.push(1);
+	
+	System.out.println("Original stack");
+	System.out.println(stack);
+	
+	Stack newstack = copyStack (stack);
+	
+	System.out.println("copyStack () is called");
+	System.out.println("Original stack");
+	System.out.println(stack);
+	System.out.println("Copy stack");
+	System.out.println(newstack);
+	
+}
+}
+	
